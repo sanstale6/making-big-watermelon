@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c0cmjugbkojxx"]
+
+[ext_resource type="Texture2D" uid="uid://bqnw1p7nn7fxj" path="res://Assets/background.png" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dprwtqm5fn4nk" path="res://scenes/fruits/grape_0.tscn" id="2_lnu2h"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
+
+[node name="game" type="Node2D" unique_id=2079213166]
+
+[node name="background" type="Sprite2D" parent="." unique_id=54953297]
+position = Vector2(630.5, 132)
+scale = Vector2(1.7680556, 1)
+texture = ExtResource("1_yqjtg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1381146198]
+position = Vector2(595, 645)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=931348124]
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+
+[node name="grape_0" parent="." unique_id=1471147038 instance=ExtResource("2_lnu2h")]
+position = Vector2(388, 75)

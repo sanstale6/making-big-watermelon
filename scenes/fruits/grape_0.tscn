@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dprwtqm5fn4nk"]
+
+[ext_resource type="Script" uid="uid://cfuoir20o4olq" path="res://scripts/fruit.gd" id="1_dgdao"]
+[ext_resource type="Texture2D" uid="uid://cef6b5dmfxpcm" path="res://Assets/fruit/0.png" id="1_h36yg"]
+[ext_resource type="Script" uid="uid://bohp4k1hk7mqb" path="res://scripts/fruit_component.gd" id="2_7pbm1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7pbm1"]
+radius = 26.076809
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dgdao"]
+radius = 29.068884
+
+[node name="grape_0" type="RigidBody2D" unique_id=1471147038]
+script = ExtResource("1_dgdao")
+metadata/_custom_type_script = "uid://cfuoir20o4olq"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=671283481]
+texture = ExtResource("1_h36yg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1295105936]
+shape = SubResource("CircleShape2D_7pbm1")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1518512693]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=38066272]
+shape = SubResource("CircleShape2D_dgdao")
+
+[node name="FruitComponent" type="Node2D" parent="." unique_id=1456169428 node_paths=PackedStringArray("collision", "detect_area")]
+script = ExtResource("2_7pbm1")
+collision = NodePath("../CollisionShape2D")
+detect_area = NodePath("../Area2D")
+metadata/_custom_type_script = "uid://bohp4k1hk7mqb"
