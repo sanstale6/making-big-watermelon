@@ -3,14 +3,150 @@
 [ext_resource type="Script" uid="uid://cfuoir20o4olq" path="res://scripts/fruit.gd" id="1_dgdao"]
 [ext_resource type="Texture2D" uid="uid://cef6b5dmfxpcm" path="res://Assets/fruit/0.png" id="1_h36yg"]
 [ext_resource type="Script" uid="uid://bohp4k1hk7mqb" path="res://scripts/fruit_component.gd" id="2_7pbm1"]
+[ext_resource type="Texture2D" uid="uid://coy0qrmc5ea8e" path="res://Assets/colorCircle/00.png" id="4_721sl"]
+[ext_resource type="Texture2D" uid="uid://ortxkvlmojur" path="res://Assets/colorCircle/0000.png" id="5_3metu"]
+[ext_resource type="Texture2D" uid="uid://dx6e3fxu8d3ps" path="res://Assets/colorCircle/000.png" id="6_ru5cj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7pbm1"]
 radius = 26.076809
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgdao"]
-radius = 29.068884
+radius = 49.0
 
-[node name="grape_0" type="RigidBody2D" unique_id=1471147038]
+[sub_resource type="Animation" id="Animation_66xi1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("animation/Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("animation/CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("animation/CPUParticles2D2:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("animation/Sprite2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hl28r"]
+resource_name = "break"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("animation/Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("animation/CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("animation/CPUParticles2D2:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("animation/Sprite2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1501, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g15xx"]
+_data = {
+&"RESET": SubResource("Animation_66xi1"),
+&"break": SubResource("Animation_hl28r")
+}
+
+[node name="grape_0" type="RigidBody2D" unique_id=1083939657]
 script = ExtResource("1_dgdao")
 metadata/_custom_type_script = "uid://cfuoir20o4olq"
 
@@ -25,8 +161,53 @@ shape = SubResource("CircleShape2D_7pbm1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=38066272]
 shape = SubResource("CircleShape2D_dgdao")
 
-[node name="FruitComponent" type="Node2D" parent="." unique_id=1456169428 node_paths=PackedStringArray("collision", "detect_area")]
+[node name="FruitComponent" type="Node2D" parent="." unique_id=1456169428 node_paths=PackedStringArray("fruit", "collision", "detect_area", "anim")]
 script = ExtResource("2_7pbm1")
+fruit = NodePath("..")
 collision = NodePath("../CollisionShape2D")
+fruit_id = "grape"
 detect_area = NodePath("../Area2D")
+target = null
+anim = NodePath("../AnimationPlayer")
 metadata/_custom_type_script = "uid://bohp4k1hk7mqb"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=751231904]
+libraries/ = SubResource("AnimationLibrary_g15xx")
+
+[node name="animation" type="Node2D" parent="." unique_id=1301340714]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="animation" unique_id=339217785]
+emitting = false
+texture = ExtResource("4_721sl")
+lifetime = 0.15000000000000002
+one_shot = true
+explosiveness = 1.0
+fract_delta = false
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 600.0
+initial_velocity_max = 1200.0
+linear_accel_min = -2000.0
+linear_accel_max = -2000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="animation" unique_id=1984025186]
+visible = false
+texture = ExtResource("5_3metu")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="animation" unique_id=484526479]
+emitting = false
+texture = ExtResource("6_ru5cj")
+lifetime = 0.15000000000000002
+one_shot = true
+explosiveness = 1.0
+fract_delta = false
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 600.0
+initial_velocity_max = 1200.0
+linear_accel_min = -2000.0
+linear_accel_max = -2000.0
