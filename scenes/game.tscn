@@ -13,15 +13,13 @@ scale = Vector2(1.7680556, 1)
 texture = ExtResource("1_yqjtg")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1381146198]
-position = Vector2(297, 1149)
+position = Vector2(312, 1069)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=931348124]
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
 
-[node name="grape_0" parent="." unique_id=1471147038 instance=ExtResource("2_lnu2h")]
-position = Vector2(388, 75)
-script = null
+[node name="grape_0" parent="." unique_id=1083939657 instance=ExtResource("2_lnu2h")]
+position = Vector2(333, 76)
 
-[node name="grape_1" parent="." unique_id=1738382062 instance=ExtResource("2_lnu2h")]
-position = Vector2(393, 1026)
-script = null
+[node name="grape_1" parent="." unique_id=903704043 instance=ExtResource("2_lnu2h")]
+position = Vector2(312, 963)

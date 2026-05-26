@@ -146,7 +146,7 @@ _data = {
 &"break": SubResource("Animation_hl28r")
 }
 
-[node name="grape_0" type="RigidBody2D" unique_id=1083939657]
+[node name="grape_0" type="RigidBody2D" unique_id=1083939657 groups=["fruit"]]
 script = ExtResource("1_dgdao")
 metadata/_custom_type_script = "uid://cfuoir20o4olq"
 
@@ -167,7 +167,7 @@ fruit = NodePath("..")
 collision = NodePath("../CollisionShape2D")
 fruit_id = "grape"
 detect_area = NodePath("../Area2D")
-target = null
+target_fruit = "uid://dprwtqm5fn4nk"
 anim = NodePath("../AnimationPlayer")
 metadata/_custom_type_script = "uid://bohp4k1hk7mqb"
 
