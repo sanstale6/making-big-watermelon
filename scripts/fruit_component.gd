@@ -28,11 +28,13 @@ func integrate(companion : FruitComponent) -> void:
 	if making:
 		return
 	making = true
+	companion.making = true
 	collision.disabled = true
 	detect_area.get_node('CollisionShape2D').disabled = true
 	fruit.get_node('Sprite2D').visible = false
-	if get_instance_id() < companion.get_instance_id():
-		return
+	companion.collision.disabled = true
+	companion.detect_area.get_node('CollisionShape2D').disabled = true
+	companion.fruit.get_node('Sprite2D').visible = false
 	anim.play('break')
 	var spawn_position = (get_parent().position + companion.get_parent().position)*0.5
 	print(spawn_position)
