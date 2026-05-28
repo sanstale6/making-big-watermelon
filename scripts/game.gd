@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var colddown : Timer = $spawn_colddown
+@onready var cooldown : Timer = $spawn_colddown
 @onready var spawn_line : Node2D = $spawn_line
 @export var fruits_list : Array[PackedScene]
 var current_fruit : Fruit
@@ -8,7 +8,7 @@ var dragging : bool = false
 var touch_x : float = 0.0
 
 func _ready() -> void:
-	colddown.start()
+	cooldown.start()
 	
 func _physics_process(delta: float) -> void:
 	if current_fruit:
@@ -31,7 +31,7 @@ func _input(event: InputEvent) -> void:
 			dragging = false
 			current_fruit.released = true
 			current_fruit.freeze = false
-			colddown.start()
+			cooldown.start()
 	
 	if dragging and event is InputEventScreenDrag:
 		var drag_position : Vector2 = get_global_from_screen(event.position)
