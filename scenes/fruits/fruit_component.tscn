@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://bl77t52ybdboa"]
-
-[ext_resource type="Script" uid="uid://bohp4k1hk7mqb" path="res://scripts/fruit_component.gd" id="1_2awgk"]
-
-[node name="FruitComponent" type="Node2D" unique_id=1433315178 node_paths=PackedStringArray("detect_area")]
-script = ExtResource("1_2awgk")
-detect_area = NodePath("")

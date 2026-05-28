@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://48m0no2r0aqu"]
-
-[ext_resource type="Script" uid="uid://cfuoir20o4olq" path="res://scripts/fruit.gd" id="1_7xrwt"]
-
-[node name="Fruit" type="RigidBody2D" unique_id=354709884]
-script = ExtResource("1_7xrwt")
