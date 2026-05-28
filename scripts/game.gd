@@ -5,6 +5,7 @@ extends Node2D
 @export var fruits_list : Array[PackedScene]
 var current_fruit : Fruit
 var dragging : bool = false
+var touch_x : float = 0.0
 
 func _ready() -> void:
 	colddown.start()
@@ -12,22 +13,29 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if current_fruit:
 		if !current_fruit.released:
-			current_fruit.position.y = spawn_line.position.y
+			current_fruit.freeze = true
+			current_fruit.linear_velocity = Vector2.ZERO
+			current_fruit.angular_velocity = 0.0
+			current_fruit.global_position = Vector2(touch_x, spawn_line.global_position.y)
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventScreenTouch and event.is_pressed() and !current_fruit.released:
-		dragging = true
+	if !current_fruit:
+		return
+
+	if event is InputEventScreenTouch:
+		if event.is_pressed() and !current_fruit.released:
+			dragging = true
+			var touch_position : Vector2 = get_global_from_screen(event.position)
+			touch_x = touch_position.x
+		elif dragging and !event.is_pressed():
+			dragging = false
+			current_fruit.released = true
+			current_fruit.freeze = false
+			colddown.start()
 	
 	if dragging and event is InputEventScreenDrag:
-		var touch_position : Vector2 = get_global_from_screen(event.position)
-		
-		#问题位置
-		current_fruit.position.x = touch_position.x
-	
-	if dragging and event is InputEventScreenTouch and !event.is_pressed():
-		dragging = false
-		current_fruit.released = true
-		colddown.start()
+		var drag_position : Vector2 = get_global_from_screen(event.position)
+		touch_x = drag_position.x
 	
 func _on_spawn_colddown_timeout() -> void:
 	spawn_fruit()
@@ -37,9 +45,11 @@ func spawn_fruit() -> void:
 	var fruit : PackedScene = fruits_list.pick_random()
 	var spawned_fruit : Fruit = fruit.instantiate()
 	get_tree().current_scene.add_child(spawned_fruit)
-	spawned_fruit.position = spawn_line.position
+	spawned_fruit.global_position = spawn_line.global_position
 	spawned_fruit.released = false
+	spawned_fruit.freeze = true
 	current_fruit = spawned_fruit
+	touch_x = spawn_line.global_position.x
 	
 	
 func get_global_from_screen(screen_pos: Vector2) -> Vector2:
