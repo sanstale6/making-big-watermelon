@@ -41,6 +41,8 @@ func integrate(companion : FruitComponent) -> void:
 	var spawned_fruit = target_fruit.instantiate()
 	spawned_fruit.position = spawn_position
 	get_tree().current_scene.add_child(spawned_fruit)
+	start_destruct()
+	companion.start_destruct()
 
 func start_destruct() -> void:
 	collision.disabled = true
