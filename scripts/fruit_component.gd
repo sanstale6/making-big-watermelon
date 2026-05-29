@@ -8,6 +8,7 @@ class_name FruitComponent
 @export_file var target_fruit
 @export var anim : AnimationPlayer
 var making : bool = false
+var removal_timer: SceneTreeTimer
 
 func _ready() -> void:
 	detect_area.body_entered.connect(collision_judge)
@@ -46,7 +47,8 @@ func integrate(companion : FruitComponent) -> void:
 
 func start_destruct() -> void:
 	collision.disabled = true
-	get_tree().create_timer(0.2).timeout.connect(fruit_remove)
+	removal_timer = get_tree().create_timer(0.2)
+	removal_timer.timeout.connect(fruit_remove)
 
 func fruit_remove() -> void:
 	get_parent().queue_free()
