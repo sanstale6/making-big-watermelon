@@ -41,3 +41,10 @@ func integrate(companion : FruitComponent) -> void:
 	var spawned_fruit = target_fruit.instantiate()
 	spawned_fruit.position = spawn_position
 	get_tree().current_scene.add_child(spawned_fruit)
+
+func start_destruct() -> void:
+	collision.disabled = true
+	get_tree().create_timer(0.2).timeout.connect(fruit_remove)
+
+func fruit_remove() -> void:
+	get_parent().queue_free()

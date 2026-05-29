@@ -1,17 +1,17 @@
-[gd_scene format=3 uid="uid://dfym3ithytcrm"]
+[gd_scene format=3 uid="uid://brtfxjkkfhgw"]
 
-[ext_resource type="Script" uid="uid://cfuoir20o4olq" path="res://scripts/fruit.gd" id="1_7wb4n"]
-[ext_resource type="Texture2D" uid="uid://bnt2rkyppga44" path="res://Assets/fruit/2.png" id="2_7wb4n"]
-[ext_resource type="Script" uid="uid://bohp4k1hk7mqb" path="res://scripts/fruit_component.gd" id="3_m717v"]
-[ext_resource type="Texture2D" uid="uid://ly30dvlnwwnt" path="res://Assets/colorCircle/02.png" id="4_7wb4n"]
-[ext_resource type="Texture2D" uid="uid://bvybfj1f0khuk" path="res://Assets/colorCircle/0002.png" id="5_iwrp2"]
-[ext_resource type="Texture2D" uid="uid://ck3lfjic5m8xn" path="res://Assets/colorCircle/002.png" id="6_m717v"]
+[ext_resource type="Script" uid="uid://cfuoir20o4olq" path="res://scripts/fruit.gd" id="1_0xbp0"]
+[ext_resource type="Texture2D" uid="uid://lcu11qurtp0a" path="res://Assets/fruit/4.png" id="2_0xbp0"]
+[ext_resource type="Script" uid="uid://bohp4k1hk7mqb" path="res://scripts/fruit_component.gd" id="3_aesea"]
+[ext_resource type="Texture2D" uid="uid://bmgw2fnaot3li" path="res://Assets/colorCircle/04.png" id="4_0xbp0"]
+[ext_resource type="Texture2D" uid="uid://btqun8tbjkp5b" path="res://Assets/colorCircle/0004.png" id="5_tl2qh"]
+[ext_resource type="Texture2D" uid="uid://drwjwjysveq1p" path="res://Assets/colorCircle/004.png" id="6_aesea"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7pbm1"]
-radius = 54.037025
+radius = 76.1643
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgdao"]
-radius = 57.035076
+radius = 78.05767
 
 [sub_resource type="Animation" id="Animation_66xi1"]
 length = 0.001
@@ -146,7 +146,7 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.13333334),
+"times": PackedFloat32Array(0.16666667),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -160,12 +160,12 @@ _data = {
 &"break": SubResource("Animation_hl28r")
 }
 
-[node name="orange_2" type="RigidBody2D" unique_id=1083939657 groups=["fruit"]]
-script = ExtResource("1_7wb4n")
+[node name="kiwi_4" type="RigidBody2D" unique_id=1083939657 groups=["fruit"]]
+script = ExtResource("1_0xbp0")
 metadata/_custom_type_script = "uid://cfuoir20o4olq"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=671283481]
-texture = ExtResource("2_7wb4n")
+texture = ExtResource("2_0xbp0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1295105936]
 shape = SubResource("CircleShape2D_7pbm1")
@@ -176,12 +176,11 @@ shape = SubResource("CircleShape2D_7pbm1")
 shape = SubResource("CircleShape2D_dgdao")
 
 [node name="FruitComponent" type="Node2D" parent="." unique_id=1456169428 node_paths=PackedStringArray("fruit", "collision", "detect_area", "anim")]
-script = ExtResource("3_m717v")
+script = ExtResource("3_aesea")
 fruit = NodePath("..")
 collision = NodePath("../CollisionShape2D")
-fruit_id = "orange"
+fruit_id = "kiwi"
 detect_area = NodePath("../Area2D")
-target_fruit = "uid://cn351g3glaa2h"
 anim = NodePath("../AnimationPlayer")
 metadata/_custom_type_script = "uid://bohp4k1hk7mqb"
 
@@ -192,7 +191,7 @@ libraries/ = SubResource("AnimationLibrary_g15xx")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="animation" unique_id=339217785]
 emitting = false
-texture = ExtResource("4_7wb4n")
+texture = ExtResource("4_0xbp0")
 lifetime = 0.15000000000000002
 one_shot = true
 explosiveness = 1.0
@@ -206,11 +205,11 @@ initial_velocity_max = 1000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="animation" unique_id=1984025186]
 visible = false
-texture = ExtResource("5_iwrp2")
+texture = ExtResource("5_tl2qh")
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="animation" unique_id=484526479]
 emitting = false
-texture = ExtResource("6_m717v")
+texture = ExtResource("6_aesea")
 lifetime = 0.15000000000000002
 one_shot = true
 explosiveness = 1.0
