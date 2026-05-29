@@ -36,13 +36,13 @@ func integrate(companion : FruitComponent) -> void:
 	companion.detect_area.get_node('CollisionShape2D').disabled = true
 	companion.fruit.get_node('Sprite2D').visible = false
 	anim.play('break')
-	start_destruct()
-	companion.start_destruct()
 	var spawn_position = (get_parent().position + companion.get_parent().position)*0.5
 	print(spawn_position)
 	var spawned_fruit = target_fruit.instantiate()
 	spawned_fruit.position = spawn_position
 	get_tree().current_scene.add_child(spawned_fruit)
+	start_destruct()
+	companion.start_destruct()
 
 func start_destruct() -> void:
 	collision.disabled = true
