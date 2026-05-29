@@ -37,10 +37,16 @@ func integrate(companion : FruitComponent) -> void:
 	companion.detect_area.get_node('CollisionShape2D').disabled = true
 	companion.fruit.get_node('Sprite2D').visible = false
 	anim.play('break')
-	var spawn_position = (get_parent().position + companion.get_parent().position)*0.5
+	#var spawn_position = (get_parent().position + companion.get_parent().position)*0.5
+	var spawn_position : Vector2 = fruit.position if fruit.position.y < companion.fruit.position.y else companion.fruit.position
 	print(spawn_position)
-	var spawned_fruit = target_fruit.instantiate()
+	var spawned_fruit : Fruit = target_fruit.instantiate()
 	spawned_fruit.position = spawn_position
+	spawned_fruit.linear_velocity = (fruit.linear_velocity + companion.fruit.linear_velocity)
+	
+	start_destruct()
+	companion.start_destruct()
+	
 	get_tree().current_scene.add_child(spawned_fruit)
 	start_destruct()
 	companion.start_destruct()

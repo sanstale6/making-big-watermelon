@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://o8oyrt0flawl" path="res://scripts/game.gd" id="1_8d2he"]
 [ext_resource type="Texture2D" uid="uid://bqnw1p7nn7fxj" path="res://Assets/background.png" id="1_t2alg"]
 [ext_resource type="PackedScene" uid="uid://dprwtqm5fn4nk" path="res://scenes/fruits/grape_0.tscn" id="2_64keg"]
-[ext_resource type="PackedScene" uid="uid://jvby1oep7hw" path="res://scenes/fruits/tomato_1.tscn" id="3_8d2he"]
+[ext_resource type="PackedScene" uid="uid://jvby1oep7hw" path="res://scenes/fruits/cherry_1.tscn" id="3_8d2he"]
 [ext_resource type="PackedScene" uid="uid://dfym3ithytcrm" path="res://scenes/fruits/orange_2.tscn" id="4_lay3v"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]

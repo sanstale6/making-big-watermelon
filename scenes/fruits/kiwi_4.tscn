@@ -8,10 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://drwjwjysveq1p" path="res://Assets/colorCircle/004.png" id="6_aesea"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7pbm1"]
-radius = 76.1643
+radius = 76.02631
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgdao"]
-radius = 78.05767
+radius = 85.00588
 
 [sub_resource type="Animation" id="Animation_66xi1"]
 length = 0.001
@@ -181,6 +181,7 @@ fruit = NodePath("..")
 collision = NodePath("../CollisionShape2D")
 fruit_id = "kiwi"
 detect_area = NodePath("../Area2D")
+target_fruit = "uid://dhx6rn65t14lg"
 anim = NodePath("../AnimationPlayer")
 metadata/_custom_type_script = "uid://bohp4k1hk7mqb"
 

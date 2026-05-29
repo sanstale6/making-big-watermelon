@@ -1,20 +1,21 @@
-[gd_scene format=3 uid="uid://c0cmjugbkojxx"]
+[gd_scene format=3 uid="uid://bl77t52ybdboa"]
 
 [ext_resource type="Script" uid="uid://o8oyrt0flawl" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://bqnw1p7nn7fxj" path="res://Assets/background.png" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dprwtqm5fn4nk" path="res://scenes/fruits/grape_0.tscn" id="2_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://jvby1oep7hw" path="res://scenes/fruits/tomato_1.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://jvby1oep7hw" path="res://scenes/fruits/cherry_1.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dfym3ithytcrm" path="res://scenes/fruits/orange_2.tscn" id="4_iywne"]
+[ext_resource type="PackedScene" uid="uid://cn351g3glaa2h" path="res://scenes/fruits/lemon_3.tscn" id="5_p57ef"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
 
 [node name="game" type="Node2D" unique_id=2079213166]
 script = ExtResource("1_lbhrr")
-fruits_list = Array[PackedScene]([ExtResource("2_lnu2h"), ExtResource("3_lnu2h"), ExtResource("4_iywne")])
+fruits_list = Array[PackedScene]([ExtResource("2_lnu2h"), ExtResource("3_lnu2h"), ExtResource("4_iywne"), ExtResource("5_p57ef")])
 
 [node name="background" type="Sprite2D" parent="." unique_id=54953297]
 position = Vector2(359, 576)
-scale = Vector2(1.7680556, 1)
+scale = Vector2(8.423393, 1.1462967)
 texture = ExtResource("1_yqjtg")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1381146198]
@@ -23,15 +24,6 @@ position = Vector2(312, 1069)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=931348124]
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
 
-[node name="grape_0" parent="." unique_id=1083939657 instance=ExtResource("2_lnu2h")]
-position = Vector2(333, 76)
-
-[node name="grape_1" parent="." unique_id=903704043 instance=ExtResource("2_lnu2h")]
-position = Vector2(312, 963)
-
-[node name="tomato_1" parent="." unique_id=760464529 instance=ExtResource("3_lnu2h")]
-position = Vector2(331, -364)
-
 [node name="spawn_line" type="Node2D" parent="." unique_id=1175215405]
 position = Vector2(325, 44)
 
@@ -39,5 +31,19 @@ position = Vector2(325, 44)
 
 [node name="spawn_colddown" type="Timer" parent="." unique_id=1828629138]
 one_shot = true
+
+[node name="StaticBody2D_left" type="StaticBody2D" parent="." unique_id=383757530]
+position = Vector2(0, 587)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D_left" unique_id=1368297278]
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+
+[node name="StaticBody2D_right" type="StaticBody2D" parent="." unique_id=439927170]
+position = Vector2(716, 601)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D_right" unique_id=1510112080]
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
 
 [connection signal="timeout" from="spawn_colddown" to="." method="_on_spawn_colddown_timeout"]
