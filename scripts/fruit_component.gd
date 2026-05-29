@@ -8,7 +8,10 @@ class_name FruitComponent
 @export_file var target_fruit
 @export var anim : AnimationPlayer
 var making : bool = false
+var pending_merge_target_id : int = 0
 var removal_timer: SceneTreeTimer
+@onready var detect_collision_shape : CollisionShape2D = detect_area.get_node('CollisionShape2D')
+@onready var fruit_sprite : Sprite2D = fruit.get_node('Sprite2D')
 
 func _ready() -> void:
 	detect_area.body_entered.connect(collision_judge)
@@ -19,37 +22,59 @@ func _ready() -> void:
 func collision_judge(body):
 	if !body.is_in_group('fruit'):
 		return
-	var target_fruit_component = body.get_node('FruitComponent')
-	if target_fruit_component.making :
+	var target_fruit_component : FruitComponent = body.get_node('FruitComponent')
+	if !can_merge_with(target_fruit_component):
 		return
-	if target_fruit_component.fruit_id == fruit_id and target_fruit_component.get_instance_id() != get_instance_id():
-		integrate(target_fruit_component)
+	if get_instance_id() > target_fruit_component.get_instance_id():
+		return
+	reserve_merge(target_fruit_component)
+	integrate(target_fruit_component)
 		
 func integrate(companion : FruitComponent) -> void:
-	if making:
+	if !is_instance_valid(companion):
+		pending_merge_target_id = 0
 		return
+	if !is_merge_reserved_with(companion):
+		return
+	pending_merge_target_id = 0
+	companion.pending_merge_target_id = 0
 	making = true
 	companion.making = true
-	collision.disabled = true
-	detect_area.get_node('CollisionShape2D').disabled = true
-	fruit.get_node('Sprite2D').visible = false
-	companion.collision.disabled = true
-	companion.detect_area.get_node('CollisionShape2D').disabled = true
-	companion.fruit.get_node('Sprite2D').visible = false
+	disable_for_merge(self)
+	disable_for_merge(companion)
 	anim.play('break')
 	#var spawn_position = (get_parent().position + companion.get_parent().position)*0.5
 	var spawn_position : Vector2 = fruit.position if fruit.position.y < companion.fruit.position.y else companion.fruit.position
-	print(spawn_position)
 	var spawned_fruit : Fruit = target_fruit.instantiate()
 	spawned_fruit.position = spawn_position
 	spawned_fruit.linear_velocity = (fruit.linear_velocity + companion.fruit.linear_velocity)
 	
-	start_destruct()
-	companion.start_destruct()
-	
 	get_tree().current_scene.add_child(spawned_fruit)
 	start_destruct()
 	companion.start_destruct()
+
+func can_merge_with(companion: FruitComponent) -> bool:
+	if !is_instance_valid(companion):
+		return false
+	return companion.fruit_id == fruit_id \
+		and companion.get_instance_id() != get_instance_id() \
+		and !making \
+		and !companion.making \
+		and pending_merge_target_id == 0 \
+		and companion.pending_merge_target_id == 0
+
+func reserve_merge(companion: FruitComponent) -> void:
+	pending_merge_target_id = companion.get_instance_id()
+	companion.pending_merge_target_id = get_instance_id()
+
+func is_merge_reserved_with(companion: FruitComponent) -> bool:
+	return pending_merge_target_id == companion.get_instance_id() \
+		and companion.pending_merge_target_id == get_instance_id()
+
+func disable_for_merge(component: FruitComponent) -> void:
+	component.collision.disabled = true
+	component.detect_collision_shape.disabled = true
+	component.fruit_sprite.visible = false
 
 func start_destruct() -> void:
 	collision.disabled = true
