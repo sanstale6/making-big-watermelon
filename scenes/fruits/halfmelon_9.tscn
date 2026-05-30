@@ -181,7 +181,7 @@ fruit = NodePath("..")
 collision = NodePath("../CollisionShape2D")
 fruit_id = "halfmelon"
 detect_area = NodePath("../Area2D")
-target_fruit = "uid://brtfxjkkfhgw"
+target_fruit = "uid://c4hm8jdtxupom"
 anim = NodePath("../AnimationPlayer")
 metadata/_custom_type_script = "uid://bohp4k1hk7mqb"
 
