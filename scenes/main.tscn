@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://byo11wcmt38gr"]
+
+[ext_resource type="Texture2D" uid="uid://bqnw1p7nn7fxj" path="res://Assets/background.png" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://c1gfpdbghqidb" path="res://scripts/main.gd" id="1_sugp2"]
+[ext_resource type="Texture2D" uid="uid://dbx4brtqmux86" path="res://Assets/background_bar.png" id="2_0wfyh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0wfyh"]
+line_spacing = 0.0
+font_size = 256
+font_color = Color(1, 0.17254902, 0.1764706, 1)
+outline_size = 38
+shadow_size = 127
+shadow_color = Color(0, 0, 0, 0.16078432)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sugp2"]
+font_size = 236
+
+[sub_resource type="Animation" id="Animation_0wfyh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(109.00001, 110)]
+}
+
+[sub_resource type="Animation" id="Animation_sugp2"]
+resource_name = "float"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(102, 315), Vector2(102, 3.0517578e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jyhfs"]
+_data = {
+&"RESET": SubResource("Animation_0wfyh"),
+&"float": SubResource("Animation_sugp2")
+}
+
+[node name="main" type="Node2D" unique_id=1063144637]
+script = ExtResource("1_sugp2")
+
+[node name="background" type="Sprite2D" parent="." unique_id=156430790]
+position = Vector2(329, 587)
+scale = Vector2(2.67627, 2.8082085)
+texture = ExtResource("1_o5qli")
+
+[node name="Label" type="Label" parent="." unique_id=912366433]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 109.00001
+offset_top = 110.0
+offset_right = 877.0
+offset_bottom = 811.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.57622427, 0.5447815)
+size_flags_horizontal = 8
+text = "合成
+大西瓜"
+label_settings = SubResource("LabelSettings_0wfyh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=739373593]
+offset_left = 168.0
+offset_top = 651.0
+offset_right = 888.0
+offset_bottom = 778.0
+scale = Vector2(0.44366676, 0.9262949)
+texture_normal = ExtResource("2_0wfyh")
+
+[node name="Label" type="Label" parent="TextureButton" unique_id=2050397958]
+layout_mode = 0
+offset_left = 205.1089
+offset_top = 14.034407
+offset_right = 677.1089
+offset_bottom = 337.0344
+scale = Vector2(0.6810117, 0.3305893)
+text = "开始"
+label_settings = SubResource("LabelSettings_sugp2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1591453315]
+libraries/ = SubResource("AnimationLibrary_jyhfs")
+autoplay = &"float"
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="MakingBigWatermelon"
-run/main_scene="uid://bl77t52ybdboa"
+run/main_scene="uid://byo11wcmt38gr"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneChanger="*uid://74q4a3ajeeci"
 
 [display]
 
@@ -21,7 +25,7 @@ window/size/viewport_width=648
 window/size/viewport_height=1152
 window/size/mode=4
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep_width"
 window/handheld/orientation=1
 
 [global_group]

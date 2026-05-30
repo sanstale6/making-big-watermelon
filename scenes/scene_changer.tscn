@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://74q4a3ajeeci"]
+
+[ext_resource type="Script" uid="uid://b8iqg0aed0r2l" path="res://scripts/scene_changer.gd" id="1_6xg6a"]
+
+[sub_resource type="Animation" id="Animation_p1hsj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_r0gix"]
+resource_name = "end"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6xg6a"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r0gix"]
+_data = {
+&"RESET": SubResource("Animation_p1hsj"),
+&"end": SubResource("Animation_r0gix"),
+&"start": SubResource("Animation_6xg6a")
+}
+
+[sub_resource type="Gradient" id="Gradient_p1hsj"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6xg6a"]
+gradient = SubResource("Gradient_p1hsj")
+
+[node name="SceneChanger" type="Node2D" unique_id=246129724]
+script = ExtResource("1_6xg6a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=130701452]
+libraries/ = SubResource("AnimationLibrary_r0gix")
+speed_scale = 6.0
+
+[node name="Timer" type="Timer" parent="." unique_id=399111065]
+wait_time = 0.2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1105481030]
+layer = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=132815732]
+visible = false
+position = Vector2(366, 105)
+scale = Vector2(21.334002, 6232.3735)
+texture = SubResource("GradientTexture1D_6xg6a")
