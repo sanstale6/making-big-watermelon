@@ -13,11 +13,12 @@ config_version=5
 config/name="MakingBigWatermelon"
 run/main_scene="uid://byo11wcmt38gr"
 config/features=PackedStringArray("4.6", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://pkfb1y5plp5t"
 
 [autoload]
 
 SceneChanger="*uid://74q4a3ajeeci"
+GameManager="*uid://dn6wfbvubiata"
 
 [display]
 
@@ -31,6 +32,11 @@ window/handheld/orientation=1
 [global_group]
 
 fruit=""
+fail_zone=""
+
+[gui]
+
+theme/custom_font="uid://cruv1eov24261"
 
 [physics]
 
@@ -40,3 +46,4 @@ fruit=""
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_s3tc_bptc=true

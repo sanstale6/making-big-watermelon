@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://crqhim46vkim7"]
+
+[ext_resource type="Script" uid="uid://cbbpjf6bj162o" path="res://scripts/fail_judge.gd" id="1_1e1ke"]
+
+[node name="fail_judge" type="Node2D" unique_id=1005956997]
+script = ExtResource("1_1e1ke")
+
+[node name="Timer" type="Timer" parent="." unique_id=1793871244]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

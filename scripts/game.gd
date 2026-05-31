@@ -3,12 +3,18 @@ extends Node2D
 @onready var cooldown : Timer = $spawn_colddown
 @onready var spawn_line : Node2D = $spawn_line
 @export var fruits_list : Array[PackedScene]
+@onready var cover_screen : CoverScreen = $cover_screen
 var current_fruit : Fruit
 var dragging : bool = false
 var touch_x : float = 0.0
+var start_time : int
+var end : bool = false
 
 func _ready() -> void:
+	start_time = Time.get_ticks_msec()
+	GameManager.start_time = start_time
 	cooldown.start()
+	$fail_judge.game_over.connect(fail)
 	
 func _physics_process(delta: float) -> void:
 	if current_fruit:
@@ -19,6 +25,8 @@ func _physics_process(delta: float) -> void:
 			current_fruit.global_position = Vector2(touch_x, spawn_line.global_position.y)
 
 func _input(event: InputEvent) -> void:
+	if end:
+		return
 	if !current_fruit:
 		return
 
@@ -50,7 +58,16 @@ func spawn_fruit() -> void:
 	spawned_fruit.freeze = true
 	current_fruit = spawned_fruit
 	touch_x = spawn_line.global_position.x
-	
+
+func fail() -> void:
+	if !end:
+		cover_screen.show_screen(false)
+		end = true
+
+func win() -> void:
+	if !end:
+		cover_screen.show_screen(true)
+		end = true
 	
 func get_global_from_screen(screen_pos: Vector2) -> Vector2:
 	return get_viewport().get_canvas_transform().affine_inverse() * screen_pos

@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://hor053e6j0wu"]
+
+[ext_resource type="Texture2D" uid="uid://ci6qw0dy2o3s" path="res://Assets/startBtn.png" id="1_5ntek"]
+[ext_resource type="Script" uid="uid://cttddgfhjjbu6" path="res://scripts/cover_screen.gd" id="1_7xcuv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gee14"]
+font_size = 107
+font_color = Color(0.9766975, 0.95996386, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0tnpc"]
+font_size = 47
+
+[sub_resource type="LabelSettings" id="LabelSettings_vtaks"]
+font_size = 115
+
+[sub_resource type="Animation" id="Animation_7xcuv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("display:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5ntek"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("display:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7xcuv"]
+_data = {
+&"RESET": SubResource("Animation_7xcuv"),
+&"show": SubResource("Animation_5ntek")
+}
+
+[node name="cover_screen" type="CanvasLayer" unique_id=510928902]
+script = ExtResource("1_7xcuv")
+
+[node name="display" type="Node2D" parent="." unique_id=1745712477]
+modulate = Color(1, 1, 1, 0)
+
+[node name="fail_screen" type="Node2D" parent="display" unique_id=1418579266]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="display/fail_screen" unique_id=285717920]
+modulate = Color(1, 1, 1, 0.6431373)
+offset_left = -124.0
+offset_top = -158.0
+offset_right = 1778.0
+offset_bottom = 1604.0
+color = Color(0, 0, 0, 1)
+
+[node name="title" type="Label" parent="display/fail_screen" unique_id=2059406671]
+offset_left = 148.0
+offset_top = 298.0
+offset_right = 498.0
+offset_bottom = 445.0
+text = "你输了!"
+label_settings = SubResource("LabelSettings_gee14")
+
+[node name="time" type="Label" parent="display/fail_screen/title" unique_id=841623351]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 147.0
+offset_right = 227.0
+offset_bottom = 212.0
+text = "耗时:"
+label_settings = SubResource("LabelSettings_0tnpc")
+horizontal_alignment = 1
+
+[node name="win_screen" type="Node2D" parent="display" unique_id=1010713787]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="display/win_screen" unique_id=1778271270]
+modulate = Color(1, 1, 1, 0.6431373)
+offset_left = -124.0
+offset_top = -158.0
+offset_right = 1778.0
+offset_bottom = 1604.0
+color = Color(0, 0, 0, 1)
+
+[node name="title" type="Label" parent="display/win_screen" unique_id=1158986615]
+offset_left = 148.0
+offset_top = 298.0
+offset_right = 498.0
+offset_bottom = 445.0
+text = "你赢了!"
+label_settings = SubResource("LabelSettings_gee14")
+
+[node name="time" type="Label" parent="display/win_screen/title" unique_id=625868327]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 147.0
+offset_right = 227.0
+offset_bottom = 212.0
+text = "耗时:"
+label_settings = SubResource("LabelSettings_0tnpc")
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="display" unique_id=1225626023]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 240.0
+offset_top = 633.0
+offset_right = 403.0
+offset_bottom = 796.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture_normal = ExtResource("1_5ntek")
+
+[node name="retry_tip" type="Label" parent="display/TextureButton" unique_id=105264740]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 174.0
+offset_right = 476.0
+offset_bottom = 331.0
+scale = Vector2(0.28960353, 0.3008134)
+text = "重新开始"
+label_settings = SubResource("LabelSettings_vtaks")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1096077600]
+libraries/ = SubResource("AnimationLibrary_7xcuv")
+speed_scale = 5.0
+
+[connection signal="pressed" from="display/TextureButton" to="." method="_on_texture_button_pressed"]

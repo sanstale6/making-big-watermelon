@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://j5skwxvwat4t"]
+
+[ext_resource type="Script" uid="uid://dcxgdvvuwykha" path="res://scripts/fail_zone.gd" id="1_vxrah"]
+
+[node name="fail_zone" type="Area2D" unique_id=1217312869 groups=["fail_zone"]]
+script = ExtResource("1_vxrah")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
