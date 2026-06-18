@@ -18,7 +18,7 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	if current_fruit:
-		if !current_fruit.released:
+		if !current_fruit.is_released:
 			current_fruit.freeze = true
 			current_fruit.linear_velocity = Vector2.ZERO
 			current_fruit.angular_velocity = 0.0
@@ -31,13 +31,13 @@ func _input(event: InputEvent) -> void:
 		return
 
 	if event is InputEventScreenTouch:
-		if event.is_pressed() and !current_fruit.released:
+		if event.is_pressed() and !current_fruit.is_released:
 			dragging = true
 			var touch_position : Vector2 = get_global_from_screen(event.position)
 			touch_x = touch_position.x
 		elif dragging and !event.is_pressed():
 			dragging = false
-			current_fruit.released = true
+			current_fruit.is_released = true
 			current_fruit.freeze = false
 			cooldown.start()
 	
@@ -54,7 +54,7 @@ func spawn_fruit() -> void:
 	var spawned_fruit : Fruit = fruit.instantiate()
 	get_tree().current_scene.add_child(spawned_fruit)
 	spawned_fruit.global_position = spawn_line.global_position
-	spawned_fruit.released = false
+	spawned_fruit.is_released = false
 	spawned_fruit.freeze = true
 	current_fruit = spawned_fruit
 	touch_x = spawn_line.global_position.x
