@@ -33,5 +33,5 @@ func get_gravity_vector() -> Vector2:
 			return Vector2.DOWN
 	return direction.normalized()
 
-func get_current_gravity_vector() -> Vector2:
+func get_cached_gravity_vector() -> Vector2:
 	return _gravity_vector

@@ -21,4 +21,4 @@ func _physics_process(delta: float) -> void:
 		return
 	if gyro_gravity_active:
 		# Keep the default gravity strength and only rotate its direction.
-		linear_velocity += GameManager.get_current_gravity_vector() * gravity_acceleration * delta
+		linear_velocity += GameManager.get_cached_gravity_vector() * gravity_acceleration * delta
