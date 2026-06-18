@@ -11,15 +11,15 @@ var gyro_gravity_enabled : bool:
 			return
 		_gyro_gravity_enabled = value
 		gyro_gravity_changed.emit(value)
-var gravity_vector : Vector2 = Vector2.DOWN
+var _gravity_vector : Vector2 = Vector2.DOWN
 # Ignore tiny readings so a resting device doesn't jitter the gravity direction.
 const SENSOR_MIN_LENGTH_SQ : float = 0.0001
 
 func _physics_process(_delta: float) -> void:
 	if !gyro_gravity_enabled:
-		gravity_vector = Vector2.DOWN
+		_gravity_vector = Vector2.DOWN
 		return
-	gravity_vector = get_gravity_vector()
+	_gravity_vector = get_gravity_vector()
 
 func get_gravity_vector() -> Vector2:
 	var gravity : Vector3 = Input.get_gravity()
@@ -31,3 +31,6 @@ func get_gravity_vector() -> Vector2:
 		if direction.length_squared() < SENSOR_MIN_LENGTH_SQ:
 			return Vector2.DOWN
 	return direction.normalized()
+
+func get_current_gravity_vector() -> Vector2:
+	return _gravity_vector
