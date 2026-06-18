@@ -1,7 +1,7 @@
 extends RigidBody2D
 class_name Fruit
 var released : bool = true
-var gravity_acceleration : float = 980.0
+var gravity_acceleration : float = 0.0
 var gyro_gravity_active : bool = false
 
 func _ready() -> void:

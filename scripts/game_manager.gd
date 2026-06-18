@@ -2,6 +2,7 @@ extends Node
 var start_time : int
 var gyro_gravity_enabled : bool = false
 var gravity_vector : Vector2 = Vector2.DOWN
+# Ignore tiny readings so a resting device doesn't jitter the gravity direction.
 const SENSOR_MIN_LENGTH_SQ : float = 0.0001
 
 func _physics_process(_delta: float) -> void:
