@@ -12,7 +12,7 @@ config_version=5
 
 config/name="MakingBigWatermelon"
 run/main_scene="uid://byo11wcmt38gr"
-config/features=PackedStringArray("4.6", "Mobile")
+config/features=PackedStringArray("4.7", "Mobile")
 config/icon="uid://pkfb1y5plp5t"
 
 [autoload]
@@ -37,6 +37,12 @@ fail_zone=""
 [gui]
 
 theme/custom_font="uid://cruv1eov24261"
+
+[input_devices]
+
+sensors/enable_accelerometer=true
+sensors/enable_gravity=true
+sensors/enable_gyroscope=true
 
 [physics]
 

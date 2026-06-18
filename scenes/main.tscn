@@ -53,6 +53,10 @@ _data = {
 &"float": SubResource("Animation_sugp2")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_g7b7a"]
+font_size = 41
+font_color = Color(0, 0, 0, 1)
+
 [node name="main" type="Node2D" unique_id=1063144637]
 script = ExtResource("1_sugp2")
 
@@ -104,4 +108,17 @@ label_settings = SubResource("LabelSettings_sugp2")
 libraries/ = SubResource("AnimationLibrary_jyhfs")
 autoplay = &"float"
 
+[node name="gyro_switch" type="CheckButton" parent="." unique_id=1703647854]
+offset_left = 205.0
+offset_right = 249.0
+offset_bottom = 24.0
+scale = Vector2(2.1463401, 1.915748)
+
+[node name="Label2" type="Label" parent="." unique_id=1779835659]
+offset_right = 40.0
+offset_bottom = 16.0
+text = "启用陀螺仪"
+label_settings = SubResource("LabelSettings_g7b7a")
+
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="toggled" from="gyro_switch" to="." method="_on_gyro_switch_toggled"]

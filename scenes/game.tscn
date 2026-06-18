@@ -25,7 +25,7 @@ scale = Vector2(8.423393, 1.1462967)
 texture = ExtResource("1_yqjtg")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1381146198]
-position = Vector2(312, 1069)
+position = Vector2(312, 1146)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=931348124]
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
@@ -76,6 +76,118 @@ position = Vector2(439, 24)
 position = Vector2(100, 43.5)
 shape = SubResource("RectangleShape2D_gee14")
 
+[node name="fail_zone4" parent="fail_judge" unique_id=1304358984 instance=ExtResource("8_gee14")]
+position = Vector2(26, 169)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone4" unique_id=1860662433]
+position = Vector2(73, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone5" parent="fail_judge" unique_id=490540291 instance=ExtResource("8_gee14")]
+position = Vector2(218, 169)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone5" unique_id=1023477116]
+position = Vector2(100, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone6" parent="fail_judge" unique_id=949993490 instance=ExtResource("8_gee14")]
+position = Vector2(439, 169)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone6" unique_id=1121910205]
+position = Vector2(100, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone7" parent="fail_judge" unique_id=342395951 instance=ExtResource("8_gee14")]
+position = Vector2(26, 303)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone7" unique_id=1490921591]
+position = Vector2(73, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone8" parent="fail_judge" unique_id=432378105 instance=ExtResource("8_gee14")]
+position = Vector2(218, 303)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone8" unique_id=1427279552]
+position = Vector2(100, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone9" parent="fail_judge" unique_id=2058972958 instance=ExtResource("8_gee14")]
+position = Vector2(439, 303)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone9" unique_id=501810141]
+position = Vector2(100, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone10" parent="fail_judge" unique_id=1486239534 instance=ExtResource("8_gee14")]
+position = Vector2(26, 450)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone10" unique_id=912746944]
+position = Vector2(73, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone11" parent="fail_judge" unique_id=675324366 instance=ExtResource("8_gee14")]
+position = Vector2(218, 450)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone11" unique_id=1532458218]
+position = Vector2(100, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone12" parent="fail_judge" unique_id=976294307 instance=ExtResource("8_gee14")]
+position = Vector2(439, 450)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone12" unique_id=1724632714]
+position = Vector2(100, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone13" parent="fail_judge" unique_id=698761312 instance=ExtResource("8_gee14")]
+position = Vector2(26, 597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone13" unique_id=830562251]
+position = Vector2(73, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone14" parent="fail_judge" unique_id=1530350351 instance=ExtResource("8_gee14")]
+position = Vector2(218, 597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone14" unique_id=932489848]
+position = Vector2(100, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone15" parent="fail_judge" unique_id=1521252235 instance=ExtResource("8_gee14")]
+position = Vector2(439, 597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone15" unique_id=35070859]
+position = Vector2(100, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone16" parent="fail_judge" unique_id=1103102145 instance=ExtResource("8_gee14")]
+position = Vector2(26, 746)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone16" unique_id=1978046954]
+position = Vector2(73, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone17" parent="fail_judge" unique_id=121870675 instance=ExtResource("8_gee14")]
+position = Vector2(218, 746)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone17" unique_id=31326191]
+position = Vector2(100, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone18" parent="fail_judge" unique_id=1874427029 instance=ExtResource("8_gee14")]
+position = Vector2(439, 746)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone18" unique_id=1400799835]
+position = Vector2(100, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
 [node name="cover_screen" parent="." unique_id=510928902 instance=ExtResource("9_0tnpc")]
+
+[node name="StaticBody2D_upper" type="StaticBody2D" parent="." unique_id=688831511]
+position = Vector2(311, -1)
+rotation = 3.1415927
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D_upper" unique_id=1127377383]
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
 
 [connection signal="timeout" from="spawn_colddown" to="." method="_on_spawn_colddown_timeout"]

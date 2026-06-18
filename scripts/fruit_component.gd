@@ -22,7 +22,9 @@ func _ready() -> void:
 func collision_judge(body):
 	if !body.is_in_group('fruit'):
 		return
+	if !fruit.is_released: return
 	var target_fruit_component : FruitComponent = body.get_node('FruitComponent')
+	if !target_fruit_component.fruit.is_released : return
 	if !can_merge_with(target_fruit_component):
 		return
 	if get_instance_id() > target_fruit_component.get_instance_id():
