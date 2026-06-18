@@ -22,3 +22,7 @@ func _physics_process(delta: float) -> void:
 	if gyro_gravity_active:
 		# Keep the default gravity strength and only rotate its direction.
 		linear_velocity += GameManager.get_cached_gravity_vector() * gravity_acceleration * delta
+
+func _exit_tree() -> void:
+	if GameManager.gyro_gravity_changed.is_connected(_on_gyro_gravity_changed):
+		GameManager.gyro_gravity_changed.disconnect(_on_gyro_gravity_changed)

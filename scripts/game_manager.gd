@@ -15,6 +15,7 @@ var gyro_gravity_enabled : bool:
 		gyro_gravity_changed.emit(value)
 var _gravity_vector : Vector2 = Vector2.DOWN
 # Ignore tiny readings so a resting device doesn't jitter the gravity direction.
+# This is low enough to reject sensor noise, but still allows normal tilting.
 const SENSOR_MIN_LENGTH_SQ : float = 0.0001
 
 func _physics_process(_delta: float) -> void:
