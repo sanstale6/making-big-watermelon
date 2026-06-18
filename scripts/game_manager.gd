@@ -1,7 +1,11 @@
 extends Node
 var start_time : int
 var gyro_gravity_enabled : bool = false
+var gravity_vector : Vector2 = Vector2.DOWN
 const MIN_VALID_SENSOR_VECTOR_LENGTH_SQUARED : float = 0.0001
+
+func _physics_process(_delta: float) -> void:
+	gravity_vector = get_gravity_vector()
 
 func get_gravity_vector() -> Vector2:
 	if !gyro_gravity_enabled:

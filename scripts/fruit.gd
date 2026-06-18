@@ -3,10 +3,11 @@ class_name Fruit
 var released : bool = true
 const DEFAULT_GRAVITY_ACCELERATION : float = 980.0
 
-func _ready() -> void:
-	gravity_scale = 0.0
-
 func _physics_process(delta: float) -> void:
 	if freeze or !released:
 		return
-	linear_velocity += GameManager.get_gravity_vector() * DEFAULT_GRAVITY_ACCELERATION * delta
+	if GameManager.gyro_gravity_enabled:
+		gravity_scale = 0.0
+		linear_velocity += GameManager.gravity_vector * DEFAULT_GRAVITY_ACCELERATION * delta
+	else:
+		gravity_scale = 1.0
