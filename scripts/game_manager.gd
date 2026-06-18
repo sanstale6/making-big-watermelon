@@ -11,9 +11,6 @@ func _physics_process(_delta: float) -> void:
 	gravity_vector = get_gravity_vector()
 
 func get_gravity_vector() -> Vector2:
-	if !gyro_gravity_enabled:
-		return Vector2.DOWN
-
 	var gravity : Vector3 = Input.get_gravity()
 	# Sensor Y points up, while Godot's 2D Y axis points down.
 	var direction : Vector2 = Vector2(gravity.x, -gravity.y)
