@@ -2,11 +2,14 @@ extends Node
 signal gyro_gravity_changed(enabled: bool)
 
 var start_time : int
-var gyro_gravity_enabled : bool = false:
+var _gyro_gravity_enabled : bool = false
+var gyro_gravity_enabled : bool:
+	get:
+		return _gyro_gravity_enabled
 	set(value):
-		if field == value:
+		if _gyro_gravity_enabled == value:
 			return
-		field = value
+		_gyro_gravity_enabled = value
 		gyro_gravity_changed.emit(value)
 var gravity_vector : Vector2 = Vector2.DOWN
 # Ignore tiny readings so a resting device doesn't jitter the gravity direction.
