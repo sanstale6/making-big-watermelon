@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://jvby1oep7hw" path="res://scenes/fruits/cherry_1.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dfym3ithytcrm" path="res://scenes/fruits/orange_2.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://cn351g3glaa2h" path="res://scenes/fruits/lemon_3.tscn" id="5_p57ef"]
-[ext_resource type="PackedScene" uid="uid://chmkmf4ky7ijm" path="res://scenes/fruits/cocoanut_8.tscn" id="6_vtaks"]
 [ext_resource type="PackedScene" uid="uid://crqhim46vkim7" path="res://scenes/fail_judge.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://j5skwxvwat4t" path="res://scenes/fail_zone.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://hor053e6j0wu" path="res://scenes/cover_screen.tscn" id="9_0tnpc"]
@@ -18,7 +17,7 @@ size = Vector2(166, 107)
 
 [node name="game" type="Node2D" unique_id=2079213166]
 script = ExtResource("1_lbhrr")
-fruits_list = Array[PackedScene]([ExtResource("2_lnu2h"), ExtResource("3_lnu2h"), ExtResource("4_iywne"), ExtResource("5_p57ef"), ExtResource("6_vtaks")])
+fruits_list = Array[PackedScene]([ExtResource("2_lnu2h"), ExtResource("3_lnu2h"), ExtResource("4_iywne"), ExtResource("5_p57ef")])
 
 [node name="background" type="Sprite2D" parent="." unique_id=54953297]
 position = Vector2(359, 576)
