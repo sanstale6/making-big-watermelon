@@ -11,7 +11,7 @@
 radius = 155.20631
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgdao"]
-radius = 145.6743
+radius = 170.04706
 
 [sub_resource type="Animation" id="Animation_66xi1"]
 length = 0.001
