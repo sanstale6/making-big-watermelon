@@ -161,6 +161,7 @@ _data = {
 }
 
 [node name="watermelon_10" type="RigidBody2D" unique_id=1083939657 groups=["fruit"]]
+mass = 3.0
 script = ExtResource("1_3jdl1")
 metadata/_custom_type_script = "uid://cfuoir20o4olq"
 

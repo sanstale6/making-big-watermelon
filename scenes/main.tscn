@@ -16,6 +16,43 @@ shadow_color = Color(0, 0, 0, 0.16078432)
 font_size = 236
 font_color = Color(0.9254902, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_jyhfs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tbgi4"]
+resource_name = "idle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.292, 1.292)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tefeu"]
+_data = {
+&"RESET": SubResource("Animation_jyhfs"),
+&"idle": SubResource("Animation_tbgi4")
+}
+
 [sub_resource type="Animation" id="Animation_0wfyh"]
 length = 0.001
 tracks/0/type = "value"
@@ -103,6 +140,12 @@ scale = Vector2(0.3578717, 0.3411986)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 text = "开始"
 label_settings = SubResource("LabelSettings_sugp2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureButton" unique_id=1460421865]
+libraries/ = SubResource("AnimationLibrary_tefeu")
+autoplay = &"idle"
+playback_auto_capture = false
+speed_scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1591453315]
 libraries/ = SubResource("AnimationLibrary_jyhfs")

@@ -161,6 +161,7 @@ _data = {
 }
 
 [node name="lemon_3" type="RigidBody2D" unique_id=1083939657 groups=["fruit"]]
+mass = 1.25
 script = ExtResource("1_sxnb3")
 metadata/_custom_type_script = "uid://cfuoir20o4olq"
 

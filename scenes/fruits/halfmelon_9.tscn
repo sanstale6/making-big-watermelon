@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cvybhaukpfqla" path="res://Assets/colorCircle/009.png" id="6_out73"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7pbm1"]
-radius = 154.98387
+radius = 152.11838
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgdao"]
 radius = 172.00291
@@ -161,6 +161,7 @@ _data = {
 }
 
 [node name="halfmelon_9" type="RigidBody2D" unique_id=1083939657 groups=["fruit"]]
+mass = 2.75
 script = ExtResource("1_opy1f")
 metadata/_custom_type_script = "uid://cfuoir20o4olq"
 

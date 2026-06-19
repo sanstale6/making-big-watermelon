@@ -181,6 +181,48 @@ position = Vector2(439, 746)
 position = Vector2(100, 43.5)
 shape = SubResource("RectangleShape2D_gee14")
 
+[node name="fail_zone19" parent="fail_judge" unique_id=1178843971 instance=ExtResource("8_gee14")]
+position = Vector2(26, 891)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone19" unique_id=1345329217]
+position = Vector2(73, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone20" parent="fail_judge" unique_id=1639406049 instance=ExtResource("8_gee14")]
+position = Vector2(218, 891)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone20" unique_id=1774310495]
+position = Vector2(100, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone21" parent="fail_judge" unique_id=418234727 instance=ExtResource("8_gee14")]
+position = Vector2(439, 891)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone21" unique_id=874530702]
+position = Vector2(100, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone22" parent="fail_judge" unique_id=112466156 instance=ExtResource("8_gee14")]
+position = Vector2(26, 1031)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone22" unique_id=758921075]
+position = Vector2(73, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone23" parent="fail_judge" unique_id=1458823200 instance=ExtResource("8_gee14")]
+position = Vector2(218, 1031)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone23" unique_id=1722258319]
+position = Vector2(100, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="fail_zone24" parent="fail_judge" unique_id=491254269 instance=ExtResource("8_gee14")]
+position = Vector2(439, 1031)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fail_judge/fail_zone24" unique_id=1081324522]
+position = Vector2(100, 43.5)
+shape = SubResource("RectangleShape2D_gee14")
+
 [node name="cover_screen" parent="." unique_id=510928902 instance=ExtResource("9_0tnpc")]
 
 [node name="StaticBody2D_upper" type="StaticBody2D" parent="." unique_id=688831511]

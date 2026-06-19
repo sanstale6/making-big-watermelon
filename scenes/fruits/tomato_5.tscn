@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cel22gsm5nw5s" path="res://Assets/colorCircle/005.png" id="6_7ibrp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7pbm1"]
-radius = 92.19544
+radius = 92.13577
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgdao"]
 radius = 106.04244
@@ -161,6 +161,7 @@ _data = {
 }
 
 [node name="tomato_5" type="RigidBody2D" unique_id=1083939657 groups=["fruit"]]
+mass = 1.75
 script = ExtResource("1_iwe57")
 metadata/_custom_type_script = "uid://cfuoir20o4olq"
 

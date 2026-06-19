@@ -3,6 +3,7 @@ class_name Fruit
 var is_released : bool = true
 var gravity_acceleration : float = 0.0
 var gyro_gravity_active : bool = false
+@onready var sprite : Sprite2D = $Sprite2D
 
 func _ready() -> void:
 	if ProjectSettings.has_setting("physics/2d/default_gravity"):

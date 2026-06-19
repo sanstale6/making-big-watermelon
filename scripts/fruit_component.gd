@@ -44,14 +44,39 @@ func integrate(companion : FruitComponent) -> void:
 	companion.making = true
 	disable_for_merge(self)
 	disable_for_merge(companion)
-	anim.play('break')
+	
 	#var spawn_position = (get_parent().position + companion.get_parent().position)*0.5
 	var spawn_position : Vector2 = fruit.position if fruit.position.y < companion.fruit.position.y else companion.fruit.position
 	var spawned_fruit : Fruit = target_fruit.instantiate()
 	spawned_fruit.position = spawn_position
 	spawned_fruit.linear_velocity = (fruit.linear_velocity + companion.fruit.linear_velocity)
 	
+	fruit.linear_velocity = Vector2.ZERO
+	fruit.angular_velocity = 0.0
+	companion.fruit.linear_velocity = Vector2.ZERO
+	companion.fruit.angular_velocity = 0.0
+	var maker_anim := get_tree().create_tween()
+	maker_anim.set_parallel()
+	#坐标动画
+	maker_anim.tween_property(fruit.sprite,'position:x',fruit.to_local(spawn_position).x,0.1).set_trans(Tween.TransitionType.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	maker_anim.tween_property(fruit.sprite,'position:y',fruit.to_local(spawn_position).y,0.1).set_trans(Tween.TransitionType.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	maker_anim.tween_property(companion.fruit.sprite,'position:x',fruit.to_local(spawn_position).x,0.1).set_trans(Tween.TransitionType.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	maker_anim.tween_property(companion.fruit.sprite,'position:y',fruit.to_local(spawn_position).y,0.1).set_trans(Tween.TransitionType.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	#透明度动画
+	maker_anim.tween_property(fruit.sprite,'modulate:a',0,0.1).set_trans(Tween.TransitionType.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	maker_anim.tween_property(companion.fruit.sprite,'modulate:a',0,0.1).set_trans(Tween.TransitionType.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	await maker_anim.finished
+	anim.play('break')
+	
 	get_tree().current_scene.add_child(spawned_fruit)
+	
+	var make_anim := get_tree().create_tween()
+	spawned_fruit.sprite.scale = Vector2(0.2,0.2)
+	
+	make_anim.set_parallel()
+	make_anim.tween_property(spawned_fruit.sprite,'scale:x',1.00,0.5).set_trans(Tween.TransitionType.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	make_anim.tween_property(spawned_fruit.sprite,'scale:y',1.00,0.5).set_trans(Tween.TransitionType.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	
 	start_destruct()
 	companion.start_destruct()
 
@@ -76,7 +101,7 @@ func is_merge_reserved_with(companion: FruitComponent) -> bool:
 func disable_for_merge(component: FruitComponent) -> void:
 	component.collision.disabled = true
 	component.detect_collision_shape.disabled = true
-	component.fruit_sprite.visible = false
+	#component.fruit_sprite.visible = false
 
 func start_destruct() -> void:
 	collision.disabled = true

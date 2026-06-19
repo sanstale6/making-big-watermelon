@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dna44odun4h4t" path="res://Assets/colorCircle/007.png" id="6_xp5sq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7pbm1"]
-radius = 154.98387
+radius = 155.20631
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgdao"]
 radius = 145.6743
@@ -161,6 +161,7 @@ _data = {
 }
 
 [node name="cocoanut_8" type="RigidBody2D" unique_id=1083939657 groups=["fruit"]]
+mass = 2.5
 script = ExtResource("1_gb8eq")
 metadata/_custom_type_script = "uid://cfuoir20o4olq"
 
@@ -179,7 +180,7 @@ shape = SubResource("CircleShape2D_dgdao")
 script = ExtResource("3_eg5h5")
 fruit = NodePath("..")
 collision = NodePath("../CollisionShape2D")
-fruit_id = "pineapple"
+fruit_id = "cocoanut"
 detect_area = NodePath("../Area2D")
 target_fruit = "uid://dpw1rnsngs1go"
 anim = NodePath("../AnimationPlayer")
